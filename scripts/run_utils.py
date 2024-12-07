@@ -10,6 +10,7 @@ try:
     from engine.utils.code_llama_client import setup_llama
 except:
     print("Unable to import Llama modules. Are you running on cluster?")
+from engine.utils.google_client import setup_google
 from engine.utils.lm_utils import unwrap_results
 from engine.utils.execute_utils import execute_command
 from engine.constants import (
@@ -236,6 +237,12 @@ def generate(
         return results
     elif LLM_PROVIDER == "llama":
         model = setup_llama()
+        _, results = model.generate(
+            user_prompt=user_prompt, system_prompt=system_prompt, **lm_config
+        )
+        return results
+    elif LLM_PROVIDER == "google":
+        model = setup_google()
         _, results = model.generate(
             user_prompt=user_prompt, system_prompt=system_prompt, **lm_config
         )
