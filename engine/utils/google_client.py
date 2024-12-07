@@ -20,11 +20,16 @@ class GoogleClient:
             self.cache = {}
 
         # Initialize Google API client
-        credentials = service_account.Credentials.from_service_account_info(
-            json.loads(GOOGLE_API_KEY),
-            scopes=["https://www.googleapis.com/auth/cloud-platform"],
-        )
-        self.client = build("generativelanguage", "v1beta2", credentials=credentials)
+        try:
+            credentials = service_account.Credentials.from_service_account_info(
+                json.loads(GOOGLE_API_KEY),
+                scopes=["https://www.googleapis.com/auth/cloud-platform"],
+            )
+            self.client = build("generativelanguage", "v1beta2", credentials=credentials)
+        except json.JSONDecodeError:
+            raise ValueError("Invalid GOOGLE_API_KEY. Please ensure it is set correctly and contains valid JSON.")
+        except Exception as e:
+            raise ValueError(f"Failed to initialize Google API client: {str(e)}")
 
     def generate(self, user_prompt, system_prompt, max_tokens=MAX_TOKENS, temperature=TEMPERATURE, stop_sequences=None, verbose=False,
                  num_completions=NUM_COMPLETIONS, skip_cache_completions=0, skip_cache=False):
