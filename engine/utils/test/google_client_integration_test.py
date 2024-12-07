@@ -9,6 +9,8 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(
 
 from engine.utils.google_client import GoogleClient
 
+# Import googleapiclient module to ensure it is available
+import googleapiclient.discovery
 
 class TestGoogleClient(unittest.TestCase):
     current_script = os.path.abspath(__file__)
