@@ -1,8 +1,13 @@
 import unittest
-from engine.utils.google_client import GoogleClient
 import os
 import json
 import threading
+
+# Add PYTHONPATH environment variable to include the root directory of the project
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
+
+from engine.utils.google_client import GoogleClient
 
 
 class TestGoogleClient(unittest.TestCase):
