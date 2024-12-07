@@ -41,7 +41,7 @@ else:
 print(f'DRY_RUN={DRY_RUN}')
 
 # LLM configs
-LLM_PROVIDER: Literal['gpt', 'claude', 'llama'] = 'claude'
+LLM_PROVIDER: Literal['gpt', 'claude', 'llama', 'gemini'] = ''
 TEMPERATURE: float = 0.05
 NUM_COMPLETIONS: int = 1
 MAX_TOKENS: int = 4000
