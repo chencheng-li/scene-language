@@ -6,11 +6,12 @@ PROJ_DIR: str = str(Path(__file__).parent.parent.absolute())
 IGNORE_INDEX = -100  # The default setting in CrossEntropyLoss
 
 try:
-    from .key import OPENAI_API_KEY, ANTHROPIC_API_KEY
+    from .key import OPENAI_API_KEY, ANTHROPIC_API_KEY, GOOGLE_API_KEY
 except:
-    print("Warning: No OpenAI or Anthropic keys found.")
+    print("Warning: No OpenAI, Anthropic, or Google keys found.")
     OPENAI_API_KEY = ''
     ANTHROPIC_API_KEY = ''
+    GOOGLE_API_KEY = ''
 
 try:
     import torch
@@ -41,7 +42,7 @@ else:
 print(f'DRY_RUN={DRY_RUN}')
 
 # LLM configs
-LLM_PROVIDER: Literal['gpt', 'claude', 'llama'] = 'claude'
+LLM_PROVIDER: Literal['gpt', 'claude', 'llama', 'google'] = 'claude'
 TEMPERATURE: float = 0.05
 NUM_COMPLETIONS: int = 1
 MAX_TOKENS: int = 4000

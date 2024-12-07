@@ -35,6 +35,7 @@ and add it to `engine/key.py`:
 ```python
 ANTHROPIC_API_KEY = 'YOUR_ANTHROPIC_API_KEY'
 OPENAI_API_KEY = 'YOUR_OPENAI_API_KEY'  # optional, required for `LLM_PROVIDER='gpt'`
+GOOGLE_API_KEY = 'YOUR_GOOGLE_API_KEY'  # optional, required for `LLM_PROVIDER='google'`
 ```
 By default, we use Claude 3.5 Sonnet. You may switch to other language models by setting `LLM_PROVIDER` in `engine/constants.py`.
 
