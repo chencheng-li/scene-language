@@ -86,3 +86,8 @@ class TestGoogleClient(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+# How to use google_client_integration_test.py
+# 1. Ensure you have set up the Google API key in `engine/key.py`.
+# 2. Run the tests using a test runner like `unittest` or `pytest`.
+# 3. The tests will check basic Google API interactions and concurrent cache updates.
